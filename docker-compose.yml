@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  awesomeapi:
+    build: ./awesomeapi
+    ports:
+      - "3000:80"
+    networks:
+      - front-tier
+      - back-tier
+
+  awesomeapiswagger:
+    image: swaggerapi/swagger-ui:v3.0.5
+    environment:
+      API_URL: 'http://awesomeapi:3000/swagger.json'
+    ports:
+      - "3001:8080"
+    networks:
+      - front-tier
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root' # TODO: Change this
+      MYSQL_USER: 'user'
+      MYSQL_PASS: 'pass'
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - back-tier
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:
