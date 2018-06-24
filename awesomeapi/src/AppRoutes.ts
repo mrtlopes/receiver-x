@@ -1,19 +1,15 @@
 import * as Router from "koa-router";
 import { Container, Inject } from "typescript-ioc";
-import { IRouterContext } from "koa-router";
-import LogController from "./Controllers/LogController";
+import { Context } from "koa";
+import LogAction from "./Logger/LogAction";
 
 export default class AppRoutes {
 
-  constructor(@Inject private logController: LogController) {
-  }
+  constructor(@Inject private logAction: LogAction) {}
 
   public setup(router: Router) {
-
-    router.post(
-      'log-message',
-      '/log/:component/',
-      (ctx: IRouterContext) => this.logController.save(ctx)
+    router.get('log-message', '/log/:service/:message',
+      (ctx: Context) => this.logAction.save(ctx)
     );
   }
 

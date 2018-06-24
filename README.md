@@ -1,9 +1,11 @@
-# receiver-x
-Dummy project to wire several technologies
+# What's this
+Dummy monorepo to wire several technologies
+
+# Why
+Just to continue to be hands on and up to date  
 
 # Architecture/Concept
-
-1. API to receive data
-1. Queue messages
-1. Worker to consume those messages 
-1. Persistent storage of those messages
+- [x] API to receive data (awesomeapi/)
+- [x] Queue messages
+- [ ] Worker to consume those messages 
+- [ ] Persistent storage of those messages

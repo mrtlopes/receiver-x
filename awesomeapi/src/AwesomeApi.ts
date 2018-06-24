@@ -8,16 +8,18 @@ import AppRoutes from "./AppRoutes";
 
 declare var process : {
   env: {
-    PORT: number
+    PORT: number,
+    RABBITMQ_URL: string
   }
 }
 
 export default class AwesomeApi {
 
-  constructor(@Inject private appRoutes: AppRoutes) {
-  }
+  constructor(
+    @Inject private appRoutes: AppRoutes,
+  ) {}
 
-  private async createApp() {
+  private createApp() {
     const app: Koa = new Koa();
     const router: Router = new Router();
     app.use(logger());
@@ -26,15 +28,15 @@ export default class AwesomeApi {
     this.appRoutes.setup(router);
     app.use(router.routes());
     app.use(router.allowedMethods());
-    return Promise.resolve(app);
+    return app;
   }
 
-  public async start() {
+  public start() {
     const port: number = process.env.PORT || 3000;
-    const app = await this.createApp();
+    const app = this.createApp();
     const server = app.listen(port);
     console.log(`Listening on port ${port}`);
-    return Promise.resolve(server);
+    return server;
   }
 
 }
