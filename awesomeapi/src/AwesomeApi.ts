@@ -3,7 +3,6 @@ import * as bodyParser from "koa-bodyparser";
 import * as logger from "koa-logger";
 import * as Router from "koa-router";
 import * as serve from "koa-static";
-import * as path from "path";
 import { Container, Inject } from "typescript-ioc";
 import AppRoutes from "./AppRoutes";
 
@@ -23,7 +22,7 @@ export default class AwesomeApi {
     const router: Router = new Router();
     app.use(logger());
     app.use(bodyParser());
-    app.use(serve(path.resolve(__dirname,  '../public')));
+    app.use(serve('./public'));
     this.appRoutes.setup(router);
     app.use(router.routes());
     app.use(router.allowedMethods());

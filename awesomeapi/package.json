@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "tsc --rootDir ./src/",
     "start": "ts-node src/index.ts",
     "start:debug": "ts-node --inspect=5858 --debug-brk --ignore false src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,15 +17,14 @@
     "@types/koa-logger": "^3.1.0",
     "@types/koa-router": "^7.0.30",
     "@types/koa-static": "^4.0.0",
-    "awesome-typescript-loader": "^5.2.0",
+    "@types/node": "^10.3.5",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.12.0",
     "source-map-loader": "^0.2.3",
     "ts-node": "^7.0.0",
-    "typescript": "^2.9.2",
-    "webpack": "^4.12.0",
-    "webpack-command": "^0.2.1"
+    "ts-loader": "^4.4.1",
+    "typescript": "^2.9.2"
   },
   "dependencies": {
     "koa": "^2.5.1",
