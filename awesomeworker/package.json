@@ -1,0 +1,28 @@
+{
+  "name": "awesomeworker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --rootDir ./src/",
+    "start": "ts-node src/index.ts",
+    "start:debug": "ts-node --inspect=5858 --debug-brk --ignore false src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqp-ts": "^1.4.0",
+    "typescript-ioc": "^1.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.6",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "source-map-loader": "^0.2.3",
+    "ts-loader": "^4.4.1",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}

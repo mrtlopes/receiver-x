@@ -10,9 +10,10 @@ This is just a personal project to continue to be hands on and up to date
 - Awesomeapi - REST API done in TypeScript to produce messages to Rabbit 
 - Awesomeworker - The consumer of the messages done in TypeScript and the one responsible to store it in the persistent storage  
 
-**Technologies:**
+**Technologies in use:**
 - RabbitMQ - The message broker
 - MySQL - The database to be our persistent storage 
+- Docker - Because containers :p
 
 # Architecture/Concept
 - [x] API to receive data [awesomeapi](awesomeapi)
