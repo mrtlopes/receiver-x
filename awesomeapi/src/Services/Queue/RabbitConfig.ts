@@ -1,7 +1,6 @@
 import * as amqp from 'amqp-ts';
 
 export default class RabbitConfig {
-
 	public readonly connection: amqp.Connection;
 	public readonly exchange: amqp.Exchange;
 
@@ -9,9 +8,4 @@ export default class RabbitConfig {
 		this.connection = new amqp.Connection(process.env.RABBITMQ_URL);
 		this.exchange = this.connection.declareExchange('AwesomeApiExchange');
 	}
-
-  public getExchange(): amqp.Exchange {
-    return this.exchange;
-  }
-
 }
